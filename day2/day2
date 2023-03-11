@@ -1,0 +1,45 @@
+
+////////find(condition)(propagation)
+db.rest.find({state_id:2, "mealType.meal_id":2},{restName:1,mealType:1, _id:0}).pretty()
+
+
+
+/////////////count
+db.rest.find().count({state_id:2}).pretty()
+
+///////Or , And
+db.rest.find({$or:[{meatType.meal_id:2},{mealType.meal_id:4}]},{restName:1, mealType:1, _id:0}).pretty()
+
+//AND
+db.rest.find({$and:[{mealType.meal_id:2},{mealType.meal_id:4}]},{restName:1, mealType:1, _id:0}).pretty()
+
+///////////////Gt Lt\
+
+db.rest.find({cost:{$gt:500}},{restName:1, cost:1,_id:0}).pretty()
+
+//Lt//
+
+db.rest.find({cost:{$lt:1000}},{restName:1, cost:1,_id:0}).pretty()
+
+//////gt and lt
+
+db.rest.find({cost:{$gt:600, $lt:800}},{restName:1, cost:1, _id:0}).pretty()
+
+
+///////////$in
+db.rest.find({"mealType.mealType_name":{$in:['dinner', 'lunch', 'breakfast']}},{restName:1, mealType_name:1,_id:0})
+
+
+/////////$nim
+db.rest.find({"mealType.mealType_name":{$nin:['dinner', 'lunch']}},{restName:1, mealType_name:1,_id;0})
+
+
+///////sort    sort 1 is assending order ,  -1 is decending order
+db.rest.find({},{restName:1, cost:1,_id:0}).sort({cost:1}).pretty()
+db.rest.find({},{restName:1, cost:1, _id:0}).sort({cost:-1}).pretty()
+
+///////limit
+db.rest.find({},{restName:1, cost:1,_id:0}).sort({cost:1}).limit(5).pretty()
+
+/////skip
+db.rest.find({},{restName:1, cost:1,_id:0}).sort({cost:1}).skip(5).limit(5).pretty()
