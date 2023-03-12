@@ -41,3 +41,10 @@ db.rest.find({},{restName:1, cost:1,_id:0}).sort({cost:1}).limit(5).pretty()
 
 /////skip
 db.rest.find({},{restName:1, cost:1,_id:0}).sort({cost:1}).skip(5).limit(5).pretty()
+
+///////Date
+db.orders.insert({_id:1, "name":"hello","dataOfOrder":ISODate("2023-03-12")})
+
+
+///Datesort
+db.orders.find({"dataOfOrder":{$gte:ISODate("2023-03-12")},{$lte:ISODate("2023-04-30")}}).sort(dataOfOrder:1)
