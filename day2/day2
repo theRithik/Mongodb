@@ -1,8 +1,6 @@
-
+//////////CRUD operations
 ////////find(condition)(propagation)
 db.rest.find({state_id:2, "mealType.meal_id":2},{restName:1,mealType:1, _id:0}).pretty()
-
-
 
 /////////////count
 db.rest.find().count({state_id:2}).pretty()
