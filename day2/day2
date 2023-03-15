@@ -48,3 +48,117 @@ db.orders.insert({_id:1, "name":"hello","dataOfOrder":ISODate("2023-03-12")})
 
 ///Datesort
 db.orders.find({"dataOfOrder":{$gte:ISODate("2023-03-12")},{$lte:ISODate("2023-04-30")}}).sort(dataOfOrder:1)
+
+
+
+
+////////////update
+db.hotel.update(
+    {_id:"2"},
+    {
+        $set:{
+            "cost":4500
+        }
+       
+    }
+)
+
+////////////
+db.hotels.update(
+    {_id:"2"},
+    {
+        $set:{
+            "type.1.name":"Premium Rooms"
+        }
+    }
+)
+
+///////////
+db.hotels.update(
+    {"type.name":"Premiere Rooms"},
+    {
+        $set:{
+            "type.$.name":"Premium Rooms"
+        }
+       
+    },
+    {
+        multi:true
+    }
+)
+
+/////////multi
+db.hotels.update(
+    {_id:"1"},
+    {
+        $mul:{cost:2}
+    }
+)
+
+/////////upset
+db.hotels.update(
+    {_id:"1"},
+    {
+        $unset:{
+            "type.1.name":"",
+            "type.1.roomype":""
+        }
+    }
+)
+db.hotels.update( {_id:"1"}, { $unset:{ "type.1.name":"", "type.1.roomtype":"" } } )
+
+db.hotels.update(
+     {_id:"1"},
+      { 
+        $unset:{
+             "type.1":""
+              }
+       }
+   )
+
+db.hotels.updateOne( { _id: "1" }, { $pop: { type: 1 } } )
+
+/////push
+db.hotels.update(
+    {_id:"1"},
+    {
+        $push:{
+            "type":{
+                "Room Type":4
+               "name":"premium",
+             
+            }
+           
+        }
+    }
+)
+
+/////upsert
+db.hotel.update(
+    {_id:"21"},
+    {
+        $set:{
+            "name":"rithik",
+            "Location": "vijayawada",
+            "cost":4500
+        }
+    },
+    {
+        "upset":true
+    }
+)
+
+//////delete/////
+db.hotels.remove({id:"21"})
+db.hotels.remove({id:"21"})
+
+db.hotels.deleteMany({city:"delhi"})
+////remove all records///
+db.hotels.remove({})
+
+////delete collections
+db.hotels.drop()
+
+///////delete database///
+use dbname
+db.dropDatabase()
