@@ -122,14 +122,36 @@ db.students.aggregate([
 
  /////////////// db.employees.aggregate([ { $match:{ gender:'female' } } ])
 
-db.employees.aggregate([ { $group:{ _id:'$department.name' } } ])
+db.employees.aggregate([ 
+    { $group:{
+        _id:'$department.name' }
+    }
+])
 
-db.employees.aggregate([ { $group:{ _id:'$department.name', totalEmployees:{$sum:1} } } ])
+db.employees.aggregate([ 
+    { $group:{ 
+        _id:'$department.name', totalEmployees:{$sum:1} 
+    }
+    } ])
 
-db.employees.aggregate([ { $match:{ gender:'male' } }, { $group:{ _id:'$department.name', totalEmployees:{$sum:1} } } ]).pretty()
+db.employees.aggregate([ 
+    { $match:{ gender:'male' } },
+    { $group:{ _id:'$department.name', totalEmployees:{$sum:1} }
+    } 
+]).pretty()
 
-db.employees.aggregate([ { $match:{ gender:'male' } }, { $group:{ _id:'$department.name', totalEmployees:{$sum:1}, totalSalary:{$avg:'$salary'}, } } ]).pretty()
+db.employees.aggregate([ 
+    { $match:{ gender:'male' } },
+    { $group:{ _id:'$department.name', totalEmployees:{$sum:1},
+              totalSalary:{$avg:'$salary'}, } } 
+]).pretty()
 
-db.employees.aggregate([ { $match:{ gender:'male' } }, { $sort:{ firstName:1 } } ]).pretty()
+db.employees.aggregate([ 
+    { $match:{ gender:'male' } },
+                        { $sort:{ firstName:1 } } 
+]).pretty()
 
-db.employees.aggregate([ { $match:{ gender:'male' } }, { $group:{ _id:{deptName:'$department.name'}, totalEmployees:{$sum:1}, totalSalary:{$avg:'$salary'}, } }, { $sort:{ "_id.deptName":-1 } } ]).pretty()
+db.employees.aggregate([ 
+    { $match:{ gender:'male' } },
+    { $group:{ _id:{deptName:'$department.name'},totalEmployees:{$sum:1}, totalSalary:{$avg:'$salary'}, } },
+    { $sort:{ "_id.deptName":-1 } } ]).pretty()
