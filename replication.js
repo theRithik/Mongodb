@@ -23,7 +23,7 @@ rs.add("127.0.0.1:2002")
 //Run over secondy to allow replication
 db.getMongo().setSlaveOk()
 
-rs.add({_id:4, host:"AAKASH:27017", priority:1});
+rs.add({_id:4, host:"localhost:27017", priority:1});
 rs.add({_id:4, host:"AAKASH:27017", priority:0, hidden: true});
 rs.addArb("AAKASH:3001")
 rs.remove()
