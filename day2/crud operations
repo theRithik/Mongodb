@@ -73,7 +73,7 @@ db.hotels.update(
     }
 )
 
-///////////
+///////////update multipule things in a single time
 db.hotels.update(
     {"type.name":"Premiere Rooms"},
     {
