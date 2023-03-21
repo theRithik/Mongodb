@@ -36,9 +36,9 @@ rs.remove()
 rs.add("localhost:2002")
 
 //Window
-mongod --port 2001 --dbpath D:\mongodb\class1 --replSet --aakash --oplogSize 128
-mongod --port 2002 --dbpath D:\mongodb\class2 --replSet --aakash --oplogSize 128
-mongod --port 2003 --dbpath D:\mongodb\class3 --replSet --aakash --oplogSize 128
+mongod --port 2001 --dbpath D:\mongodb\class1 --replSet --rithik --oplogSize 128
+mongod --port 2002 --dbpath D:\mongodb\class2 --replSet --rithik --oplogSize 128
+mongod --port 2003 --dbpath D:\mongodb\class3 --replSet --rithik --oplogSize 128
 
 mongo --port 2001
 mongo --port 2002
