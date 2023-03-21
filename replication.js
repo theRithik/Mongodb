@@ -4,9 +4,9 @@ md rs1
 md rs2
 md rs3
 
-sudo mongod --port 2001 --dbpath data/rs1 --replSet --aakash --oplogSize 128
-sudo mongod --port 2002 --dbpath data/rs2 --replSet --aakash --oplogSize 128
-sudo mongod --port 2003 --dbpath data/rs3 --replSet --aakash --oplogSize 128
+sudo mongod --port 2001 --dbpath data/rs1 --replSet --rithik --oplogSize 128
+sudo mongod --port 2002 --dbpath data/rs2 --replSet --rithik --oplogSize 128
+sudo mongod --port 2003 --dbpath data/rs3 --replSet --rithik --oplogSize 128
 
 mongo --port 2001
 mongo --port 2002
