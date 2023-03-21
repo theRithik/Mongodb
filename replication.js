@@ -1,7 +1,8 @@
-
-sudo mkdir data/rs1
-sudo mkdir data/rs2
-sudo mkdir data/rs3
+////windows
+open data and then use these commends
+md rs1
+md rs2
+md rs3
 
 sudo mongod --port 2001 --dbpath data/rs1 --replSet --aakash --oplogSize 128
 sudo mongod --port 2002 --dbpath data/rs2 --replSet --aakash --oplogSize 128
