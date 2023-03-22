@@ -65,8 +65,8 @@ db.members.insert( [
 // $project 
 // It will select some specifi fields from a collection 
 
-// $group 
-// it is used to group document on based on some values 
+ $group 
+ it is used to group document on based on some values 
 
 $sort
  Its is used to sort the data 
