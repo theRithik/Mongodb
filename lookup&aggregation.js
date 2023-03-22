@@ -68,11 +68,11 @@ db.members.insert( [
 // $group 
 // it is used to group document on based on some values 
 
-// $sort
-//  Its is used to sort the data 
+$sort
+ Its is used to sort the data 
 
-//$skip
-// Skip number of documents 
+$skip
+Skip number of documents 
 
  $limit 
  To retrive number of documents
