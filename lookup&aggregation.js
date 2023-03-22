@@ -74,12 +74,12 @@ db.members.insert( [
 //$skip
 // Skip number of documents 
 
-// $limit 
-// To retrive number of documents
+ $limit 
+ To retrive number of documents
 
-// $unwind
-// Deconstructs an array,like flat the array 
-// $out Is to write the document output
+ $unwind
+ Deconstructs an array,like flat the array 
+ $out Is to write the document output
 
 
 ////match//
